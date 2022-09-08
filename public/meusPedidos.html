@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/menuLateral.css">
+    <link rel="stylesheet" href="style/meusPedidos.css">
+    <link rel="icon" href="assets/favicon-16x16.png">
+    <title>Meus Pedidos</title>
+</head>
+<body>
+
+    <header>
+        <div id="menu">
+            <a href="painelCliente.html"><img class="menu-bar" src="assets/back.png" alt="icone para menu"></a>
+            <ul>
+                <a href="carrinho.html"><li>Carrinho</li></a>
+                <a href="home.html"><li>Pesquisar</li></a>
+                <a href="#"><li onclick="sair()">Sair</li></a>
+            </ul>
+        </div>
+    </header>
+
+    <!--<div id="principal">
+        <a href="painelCliente.html"> <img class="icon-menu" src="assets/Card.png" alt="icon credit-card"></a>
+        <a href="home.html"><img class="icon-menu" src="assets/Search.png" alt="icon search"></a> 
+        <a href="carrinho.html"><img class="icon-menu" src="assets/shopping cart.png" alt="icon shopping-cart"></a> 
+        <a href="meusPedidos.html"><img class="icon-menu" src="assets/Package.png" alt="icon package"></a> 
+        <img id="icon-logout" class="icon-menu" src="assets/Logout.png" alt="icon credit-card" onclick="sair()">
+    </div> -->
+
+    <div id="conteudo">
+        <h2 id="title">Meus Pedidos</h2>
+        <p id="total-pedidos">Você fez 0 pedidos</p> <br> <br> <br>
+        <div id="pedidos">
+
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.9.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.9.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.9.2/firebase-firestore-compat.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/auth-guard.js"></script>
+    <script src="js/meusPedidos.js"></script>
+</body>
+</html>

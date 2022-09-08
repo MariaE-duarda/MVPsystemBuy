@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/cadastroProduto.css">
+    <link rel="icon" href="assets/favicon-16x16.png">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Cadastro Produto</title>
+</head>
+<body>
+    <h1 id="title">Cadastrar Produto</h1>
+    <hr>
+    <form method='get' action="pedidosFeitos.html">
+        <label for="nomeProduto"></label>
+        <input id='nomeProduto' type="text" placeholder="Nome do produto" required name="nomeProduto">
+        <div class="inputs">
+            <label for="precoProduto"></label>
+            <input id='precoProduto' type="number" placeholder="Preço do produto" required name="price" min="0" value=" " step="any">
+            <label for="marca"></label>
+            <input id='marca' type="text" placeholder="Marca do produto" required name='marca'>
+        </div>
+        <label for="unidade"></label>
+        <input id="unidade" type="text" placeholder="Unidade do produto" required name="unidade">
+        <label for="descricao"></label>
+        <input id='descricao' type="text" placeholder="Descrição do produto" required name="descricao">
+        <label for="linkImagem"></label>
+        <input id='linkImagem' type="text" placeholder="Link da Imagem" required name="linkImagem">
+    </form>
+    <button id='button-produto' onclick="cadastrarProduto()">Cadastrar</button>
+
+
+    <script src="https://www.gstatic.com/firebasejs/9.9.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.9.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.9.2/firebase-firestore-compat.js"></script>
+    <script src="js/habilitar-botao.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/auth-guard.js"></script>
+    <script src="js/cadastroProduto.js"></script>
+</body>
+</html>

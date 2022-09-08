@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Poppins';
+
+}
+body{
+    background: #317B78;
+    align-items: center;
+    text-align: center;
+}
+
+#title{
+    margin-top: 10%;
+    margin-bottom: 5%;
+    color: #FFFFFF;
+    font-size: 45px;
+    height: auto;
+}
+
+input{
+    height: 40px;
+    width: 50%;
+    border-radius: 5px;
+    border-color: transparent;
+    margin: 0.8%;
+}
+
+
+
+input::placeholder{
+    color: #317B78;
+    font-weight: 500;
+}
+
+input:focus{
+    outline: none;
+}
+#botoes{
+    width: 51.35%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    text-align: center;
+    justify-content: right;
+    margin-left: 24.45%;
+}
+#button-login{
+    background-color: grey;
+    color: #FFFFFF;
+    height: 47px;
+    width: 50.68%;
+    border-radius: 5px;
+    border-color: transparent;
+    margin: 0.8%;
+    cursor: pointer;
+}
+
+a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+b{
+    font-weight: 600;
+}
+
+p{
+    color: #FFFFFF;
+}
+
+
+
+@media (max-width: 800px){
+    #title{
+        font-size: 45px;
+        margin-top: 50px;
+        margin-bottom: 25px;
+    }
+
+    #possui-conta, #cadastrar-se, #redefinir-senha{
+        font-size: 12px;
+    }
+
+    input{
+        width: 80%;
+        height: 35px;
+    }
+
+    #button-login{
+        margin-top: 15px;
+        width: 60%;
+        height: 35px;
+    }
+}
+
