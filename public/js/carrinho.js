@@ -115,13 +115,14 @@ function addProdutosToScreenCart(produtos){
 
 
             const botao = document.createElement('img');
-            botao.src = '../public/assets/delete.png';
+            botao.src = 'https://icon-library.com/images/delete-icon-png/delete-icon-png-19.jpg';
             botao.style.height = '45px';
             botao.style.width = '45px';
-            botao.style.background = '#D21D1D';
+            botao.style.background = 'white';
             botao.style.borderRadius = '5px';
             botao.style.borderColor = 'white';
             botao.style.marginRight = '12px';
+            botao.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
             botao.className = 'button';
             botao.style.cursor = 'pointer';
             botao.onclick = function (){
@@ -197,7 +198,7 @@ var button = document.getElementById('finalizar-compra')
 
 async function finalizarCompra(){
     if(itensDoCarrinho.length < 1) return;
-    var mensagem = 'Olá, Ravel!\nGostaria de fazer o seguinte pedido:\n'
+    var mensagem = 'Olá, Ravel!\n\n'
     var pedido = {}
     var total = 0
     const timeElapsed = Date.now('pt-br');
@@ -215,22 +216,28 @@ async function finalizarCompra(){
         numero = snapshot.docs.map(doc => doc.data())
         numero = parseInt(numero[0]['numero'])
         pedido['numeroPedido'] = numero
+        mensagem += `Gostaria de finalizar com você o meu pedido (nº ${numero})!\n\n` 
         firebase.firestore().collection('numeroPedido').doc('numeroAtual').set({'numero': numero + 1})
     })
 
     pedido['total'] = valor.toFixed(2)
-
+    mensagem += 'Este é o resumo dele:\n\n'
     var produtosDoCarrinho = []
+    var quantidadeDeItens = 0 
     itensDoCarrinho.forEach(item => {
-        mensagem += `${itens[item['id']]}x ${item['nome']} (R$ ${(item['preco'] * itens[item['id']]).toFixed(2)})\n`
+        mensagem += `${itens[item['id']] < 10 ? '0' + itens[item['id']] : itens[item['id']]}x ${item['nome']} (R$ ${(item['preco'] * itens[item['id']]).toFixed(2)})\n`
         var produtoAtual = {}
         produtoAtual['nome'] = item['nome']
         produtoAtual['preco'] = item['preco']
         produtoAtual['quantidade'] = itens[item['id']]
-        total += item['preço'] * itens[item['id']]
+        quantidadeDeItens += itens[item['id']]
+        produtoAtual['total'] = item['preço'] * itens[item['id']]
         produtosDoCarrinho.push(produtoAtual)
     })
     pedido['produtos'] = produtosDoCarrinho
+    mensagem += `\n*TOTAL DE ITENS: ${quantidadeDeItens}*\n`
+    mensagem += `*TOTAL EM DINHEIRO: R$ ${valor.toFixed(2)}*\n\n`
+    mensagem += `Você possui todos esses ${quantidadeDeItens} itens?`
     
     firebase.firestore().collection('pedidos').add(pedido).then(()=>{
         Swal.fire({
@@ -242,8 +249,6 @@ async function finalizarCompra(){
         localStorage.setItem(useruid, JSON.stringify(itens));
         atualizarValorTotal()
         addProdutosToScreenCart(itensDoCarrinho)
-        mensagem += `TOTAL: R$ ${pedido['total']}\n`
-        mensagem += `Pedido: nº ${pedido['numeroPedido']}`
         console.log(mensagem)
         mensagem = window.encodeURIComponent(mensagem)
         window.open(`https://api.whatsapp.com/send?phone=5584999391233&text=${mensagem}`, '_blank')

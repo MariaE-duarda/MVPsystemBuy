@@ -11,7 +11,6 @@ function mudarFiltro(){
 
 function inverterFiltro(){
     produtos.reverse();
-    addProdutosToScreen(produtos, '#317B78', '../public/assets/shopping cart.png')
 }
 
 
@@ -21,7 +20,7 @@ function findProdutos(value){
     firebase.firestore().collection('produtos').orderBy(value).get().then(snapshot => {
        
             produtos = snapshot.docs.map(doc => doc.data())
-            addProdutosToScreen(produtos, '#317B78', '../public/assets/shopping cart.png')
+            addProdutosToScreen(produtos, '#317B78', 'https://static.vecteezy.com/system/resources/previews/000/487/765/original/shopping-cart-icon-design-vector.jpg')
     })
 }
 
@@ -100,12 +99,15 @@ function addProdutosToScreen(produtos, corDoBotao, imagemDoBotao){
 
 
        const botao = document.createElement('img');
-       botao.src = imagemDoBotao;
+       botao.src = imagemDoBotao
+       botao.className = 'button-compra';
+       botao.id = 'button-compra';
        botao.style.height = '50px';
+       botao.style.backgroundImage = 'url("../assets/shopping\ cart.png")';
+       botao.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
        botao.style.width = '50px';
        botao.style.background = corDoBotao;
-       botao.style.borderRadius = '5px';
-       botao.style.borderColor = 'white';
+       botao.style.borderRadius = '10px';
        botao.style.marginTop = '-85px';
        botao.style.marginRight = '3%';
        botao.style.marginBottom = '100px';
@@ -115,7 +117,6 @@ function addProdutosToScreen(produtos, corDoBotao, imagemDoBotao){
        botao.onclick = function (){
         selecionarQuantidadeDeItens(produto)
        }
-       botao.style.border = '4px solid white';
        
        divBotao.appendChild(botao)
        li.appendChild(divInfoProduto);

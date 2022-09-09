@@ -22,7 +22,7 @@ function adicionarPedidosNaTela(meusPedidos){
         var divCard = document.createElement('div');
         divCard.className = 'pedido'
         var dataEHora = document.createElement('p')
-        dataEHora.innerHTML = `<b>Dia</b>: ${meuPedido['data']}<br><b>Horas</b>: ${meuPedido['hora']}<br><br>`
+        dataEHora.innerHTML = ` <b>Dia</b>: ${meuPedido['data']}<br> <b>Horas</b>: ${meuPedido['hora']}<br><br>`
         dataEHora.style.float = 'left'
         dataEHora.style.marginLeft = '5px'
         dataEHora.style.marginTop = '5px'
@@ -33,7 +33,7 @@ function adicionarPedidosNaTela(meusPedidos){
             var divProduto = document.createElement('div')
             divProduto.className = 'divProduto'
             var quantidadeEProduto = document.createElement('p')
-            quantidadeEProduto.innerHTML = `${produto['nome']} - ${produto['quantidade']} unidade(s)`
+            quantidadeEProduto.innerHTML = `  ${produto['nome']} - ${produto['quantidade']} unidade(s)`
             quantidadeEProduto.className = 'texto'
             quantidadeEProduto.style.width = 'max-content'
             quantidadeEProduto.style.marginLeft = ''

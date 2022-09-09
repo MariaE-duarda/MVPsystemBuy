@@ -96,6 +96,9 @@ ul{
     height: 45px;
 }
 
+img.button-compra#button-compra{
+    background-image: url('../assets/shopping cart.png');
+}
 
 a{
     font-size: 20px;
