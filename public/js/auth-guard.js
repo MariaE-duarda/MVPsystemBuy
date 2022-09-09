@@ -5,6 +5,11 @@ firebase.auth().onAuthStateChanged(function(user){
     }else{
         useruid = firebase.auth().currentUser.uid
         localStorage.setItem('uid', useruid)
+        if(firebase.auth().currentUser.email == 'ravelsoares64@gmail.com'){
+            localStorage.setItem('tipo', 'vendedor')
+        }else{
+            localStorage.setItem('tipo', 'cliente')
+        }
         
     }
 })

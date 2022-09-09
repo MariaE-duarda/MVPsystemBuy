@@ -146,6 +146,11 @@ function selecionarQuantidadeDeItens(produto){
     }).then((result) => {
         if (result.value) {
             adicionarAoCarrinho(produto.id, result.value)
+            alert('Produtos adicionados no carrinho!')
+
+            let newCarrinho = document.getElementById('img-info');
+            newCarrinho.style.display = 'flex';
+
         }
     });
 }

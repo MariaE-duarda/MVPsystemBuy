@@ -26,6 +26,14 @@ ul{
     width: auto;
 }
 
+#img-info{
+    position: absolute;
+    width: 50px;
+    margin-top: -10px;
+    margin-left: 100px;
+    display: none;
+}
+
 @media(max-width: 1100px){
     ul{
         margin-left: 60%;

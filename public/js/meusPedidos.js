@@ -1,17 +1,24 @@
 var pedidos = JSON.parse(localStorage.getItem(`meusPedidos${useruid}`)) || []
+var tipoDeUsuario = localStorage.getItem('tipo')
 var qtdPedidos = pedidos.length
 atualizarNumeroDePedidos(qtdPedidos)
 pegarPedidos()
 function pegarPedidos(){
-    if(useruid){
+    if(useruid && (tipoDeUsuario == 'cliente')){
+        console.log('É cliente rapaz')
         firebase.firestore().collection('pedidos').where('idCliente', '==', useruid).orderBy('today', 'desc').get().then(snapshot => {
             pedidos = snapshot.docs.map(doc => doc.data())
             localStorage.setItem(`meusPedidos${useruid}`, JSON.stringify(pedidos))
             adicionarPedidosNaTela(pedidos)
             atualizarNumeroDePedidos(pedidos.length)
-            console.log(pedidos)
+        });    
+    }else if(useruid && (tipoDeUsuario == 'vendedor')){
+        firebase.firestore().collection('pedidos').orderBy('today', 'desc').get().then(snapshot => {
+            pedidos = snapshot.docs.map(doc => doc.data())
+            localStorage.setItem(`meusPedidos${useruid}`, JSON.stringify(pedidos))
+            adicionarPedidosNaTela(pedidos)
+            atualizarNumeroDePedidos(pedidos.length)
         });
-        
     }
 }
 
@@ -75,5 +82,15 @@ function adicionarPedidosNaTela(meusPedidos){
 }
 
 function atualizarNumeroDePedidos(numeroDePedidos){
-    document.getElementById('total-pedidos').innerHTML = `Você fez ${numeroDePedidos} pedidos`;
+    if(tipoDeUsuario == 'cliente'){
+        document.getElementById('total-pedidos').innerHTML = `Você fez ${numeroDePedidos} pedidos`;
+    }else if(tipoDeUsuario == 'vendedor'){
+        document.getElementById('total-pedidos').innerHTML = `Foram feitos ${numeroDePedidos} pedidos`;
+    }
+}
+editarPedido(28)
+function editarPedido(numeroDoPedido){
+    firebase.firestore().collection('pedidos').where('numeroPedido', '==', numeroDoPedido).get().then(snapshot =>{
+        //console.log(snapshot.docs)
+    })
 }
