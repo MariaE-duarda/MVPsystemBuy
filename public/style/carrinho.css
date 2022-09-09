@@ -18,13 +18,13 @@ h2.produto-text{
 .menu-bar{
     margin-left: -85%;
     height: 45px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 30px;
     cursor: pointer;
 }
 
 ul{
-    margin-top: -70px;
+    margin-top: -77px;
     margin-left: 70%;
     width: auto;
 }
@@ -68,7 +68,9 @@ a{
 li{
     display: inline-block;
     margin-left: 5%;
+    margin-left: 2%;
     transition: 0.3s;
+    padding-right: 7px;
 }
 
 li:hover{
@@ -107,7 +109,7 @@ h3{
     top: 0;
     left: 0;
     width: 100%;
-    height: 90px;
+    height: 70px;
     background-color: rgb(197, 221, 220);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }

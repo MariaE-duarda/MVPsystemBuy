@@ -12,10 +12,11 @@ body{
 
 #title{
     margin-top: 100px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #FFFFFF;
-    font-size: 75px;
-    height: auto;
+    font-size: 70px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 input{
@@ -35,15 +36,19 @@ input:focus{
     outline: none;
 }
 
-#button-login{
+
+
+#button-cadastro{
     background-color: grey;
     color: #FFFFFF;
     height: 47px;
     width: 50.68%;
     border-radius: 5px;
     border-color: transparent;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 500;
     cursor: pointer;
-    margin-top: 8px;
 }
 
 a{
@@ -56,52 +61,44 @@ b{
 }
 
 p{
+    font-size: 18px;
     color: #FFFFFF;
 }
 
-@media (max-width: 800px){
-    
-}
-
-
 
 @media(max-width: 840px){
-    #title{
-        font-size: 70px;
+    input{
+        width: 60%;
     }
 
-    input#usuario, input#senha{
-        width: 75%;
-        margin-bottom: 15px;
+    p#possui-conta{
+        margin-top: 170px;
     }
-
-    button#button-login{
-        width: 76%;
-    }
-
-    p{
-        margin-bottom: -10px;
-    }
-
-    p#cadastrar-se{
-        margin-top: 300px;
-    }
-
-
 
 }
 
 @media(max-width: 670px){
+    input, button#button-cadastro{
+        width: 70%;
+    }
 
 }
 
 @media(max-width: 500px){
-    #cadastrar-se, p#redefinir-senha{
+
+    #title{
+        font-size: 60px;
+    }
+
+    p#possui-conta{
         font-size: 15px;
     }
 }
 
 @media(max-width: 400px){
-
+    #title{
+        font-size: 50px;
+    }
 }
+
 

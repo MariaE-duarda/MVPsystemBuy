@@ -15,13 +15,13 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    height: 90px;
+    height: 70px;
     background-color: rgb(197, 221, 220);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 ul{
-    margin-top: -70px;
+    margin-top: -75px;
     margin-left: 70%;
     width: auto;
 }
@@ -105,8 +105,9 @@ a{
 
 li{
     display: inline-block;
-    margin-left: 5%;
+    margin-left: 2%;
     transition: 0.3s;
+    padding-right: 7px;
 }
 
 li:hover{
@@ -114,7 +115,7 @@ li:hover{
 }
 
 img.menu-bar{
-    margin-top: 20px;
+    margin-top: 15px;
     height: 40px;
 }
 

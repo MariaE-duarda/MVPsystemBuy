@@ -1,2 +1,3 @@
-# projeto-web-teste
- 
+# projeto web
+
+Sistema de vendas.

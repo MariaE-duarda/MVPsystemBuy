@@ -20,7 +20,7 @@ body{
 
 img.menu-bar{
     height: 40px;
-    margin-top: 9px;
+    margin-top: 10px;
     cursor: pointer;
     margin-left: 3%;
 }
@@ -31,7 +31,7 @@ img.menu-bar{
 }
 
 ul{
-    margin-top: -70px;
+    margin-top: -43px;
     margin-left: 70%;
     width: auto;
 }
@@ -99,9 +99,9 @@ a{
 
 li{
     display: inline-block;
-    margin-left: 5%;
+    margin-left: 2%;
     transition: 0.3s;
-    margin-top: 30px;
+    padding-right: 7px;
 }
 
 li:hover{

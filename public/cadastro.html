@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="style/principal.css">
+    <link rel="stylesheet" href="style/cadastroGeral.css">
     <link rel="icon" href="assets/favicon-16x16.png">
 </head>
 <body>
@@ -25,8 +25,8 @@
             <input class='password' id='confirm-senha' type="password" placeholder="Confirmar Senha" required name=confirm-senha>
         </div>
     </form>
-    <button  id='button-login' disabled="disabled" onclick="registrar()">Cadastrar</button>
-    <p id="possui-conta"><a href="index.html">Já possui conta? <b>Entre</b></a></p>
+    <button  id='button-cadastro' disabled="disabled" onclick="registrar()">Cadastrar</button>
+    <p id="possui-conta">Já possui conta? <a href="index.html"><b>Entre</b></a></p>
     <script src="https://www.gstatic.com/firebasejs/9.9.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.9.2/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.9.2/firebase-firestore-compat.js"></script>

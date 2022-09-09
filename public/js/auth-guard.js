@@ -9,7 +9,6 @@ firebase.auth().onAuthStateChanged(function(user){
     }
 })
 
-
 function sair(){
     firebase.auth().signOut().then(() => {
         window.location.href = 'index.html';

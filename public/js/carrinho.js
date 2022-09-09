@@ -22,9 +22,10 @@ function addProdutosToScreenCart(produtos){
     if(produtos.length == 0){
         var img = document.createElement('img')
         img.src = '../assets/ecommerce-campaign-animate.svg'
-        img.style.marginLeft = '90%'
-        img.style.height = '100%'
-        img.style.width = '100%'
+        img.style.marginLeft = 'auto'
+        img.style.marginRight = 'auto'
+        img.style.height = '80%'
+        img.style.width = '80%'
         orderedList.appendChild(img)
     }
         produtos.forEach(produto =>{ 
@@ -143,6 +144,7 @@ pegarItensDoCarrinho(itensDoCarrinho)
 
 function pegarItensDoCarrinho(itensDoCarrinho){
     var valorTotal = 0
+
     firebase.firestore().collection('produtos').get().then(snapshot => {
         var todosProdutos = snapshot.docs.map(doc => doc.data())
         Object.keys(itens).forEach(key =>{
@@ -171,9 +173,9 @@ function atualizarValorTotal(){
 function confirmarExclusao(id){
     Swal.fire({
         title: 'Tem certeza disso?',
-        showDenyButton: true,
-        confirmButtonText: 'Excluir',
-        denyButtonText: 'Não Excluir',       
+        showDenyButton: false,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: 'Sim, excluir',            
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log(itensDoCarrinho)
@@ -184,7 +186,7 @@ function confirmarExclusao(id){
                 localStorage.setItem(useruid, JSON.stringify(itens));
                 pegarItensDoCarrinho(itensDoCarrinho)
                 atualizarValorTotal()
-                Swal.fire('Produto Excluído!', '', 'success')
+                Swal.fire('Produto Excluído!', '', 'successo')
                 pegarItensDoCarrinho()
             }
     })

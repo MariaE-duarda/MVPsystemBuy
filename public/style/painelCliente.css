@@ -35,7 +35,7 @@ body{
 }
 
 ul{
-    margin-top: -70px;
+    margin-top: -75px;
     margin-left: 70%;
     width: auto;
 }
@@ -50,7 +50,7 @@ ul{
     ul{
         margin-left: 50%;
     }
-    button#buttonProcurar.button, button#button1.button, button#button2.button{
+    #buttonProcurar.button, #button1.button, #button2.button{
         margin-top: 20px;
         margin-bottom: 10px;
     }
@@ -60,19 +60,42 @@ ul{
     ul{
         margin-left: 30%;
     }
+    button{
+        width: 80%;
+    }
 }
 
 @media(max-width: 500px){
     ul{
         margin-left: 10%;
     }
+    button#buttonProcurar.button{
+        margin-bottom: -20px;
+    }
+
+    button#buttonProcurar.button, button#button1.button, button#button2.button{
+        height: 120px;
+        width: 85%;
+    }
     
+    hr#produto, hr#compra{
+        width: 80%;
+    }
+
+    div#aviso.aviso{
+        margin-bottom: -50px;
+    }
+
+    img#cancelar.cancelar{
+        margin-left: 84%;
+    }
 }
 
 @media(max-width: 400px){
     li{
         font-size: 16px;
     }
+
 }
 
 a{
@@ -83,7 +106,9 @@ a{
 li{
     display: inline-block;
     margin-left: 5%;
+    margin-left: 2%;
     transition: 0.3s;
+    padding-right: 7px;
 }
 
 li:hover{
@@ -160,7 +185,7 @@ a{
 }
 
 hr{
-    width: 60%;
+    width: 70%;
     border-top: 8px solid #317B78;
     border-radius: 5px;
     margin-left: auto;
@@ -172,7 +197,7 @@ button{
     border: none;
     border-radius: 10px;
     height: 150px;
-    width: 60%;
+    width: 70%;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -266,9 +291,6 @@ button:hover{
         font-size: 15px;
     }
 
-    button{
-        width: 80%;
-    }
 }
 
 @media(max-width: 580px){ /* Menores de 580px */
