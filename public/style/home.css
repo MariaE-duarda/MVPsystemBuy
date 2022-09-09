@@ -139,19 +139,6 @@ img.menu-bar{
     font-family: Georgia, serif;
 }
 
-.square{
-    height: auto;
-    width: 90%;
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    margin-top: 120px;
-    margin-bottom: 15px;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
 #input-pesquisa{
     background: transparent url('../assets/Search (1).png') no-repeat right;
     background-size: 20px;
@@ -211,17 +198,9 @@ img.menu-bar{
     margin-left: 10px;
     font-weight: 400;
     font-size: 35px;
-
 }
 
 .produtos{
     margin-bottom: 50px;
 }
 
-.grid{
-    display: grid;
-}
-
-.grid-template-columns {
-	grid-template-columns: minmax(200px, 1fr) 1fr 1fr;
-}

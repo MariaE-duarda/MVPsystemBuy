@@ -30,6 +30,7 @@ function addProdutosToScreen(produtos, corDoBotao, imagemDoBotao){
     {
         lista[i].remove()
     }
+
     const orderedList = document.getElementById('produtos')
 
     produtos.forEach(produto =>{ 
@@ -43,18 +44,14 @@ function addProdutosToScreen(produtos, corDoBotao, imagemDoBotao){
         li.style.marginTop = '0px';
         li.className = 'produto';
         li.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
-
  
         const divInfoProduto = document.createElement('div');
-        divInfoProduto.style.height = '143px';
-        
+        divInfoProduto.style.height = '70px'; 
 
         const divInfo = document.createElement('div')
         divInfo.style.display = 'flex';
         divInfo.style.flexDirection = 'Column';
         
-        
-
         const nome = document.createElement('h3')
         nome.innerHTML = '<b>Nome do produto: </b>' + produto['nome'];
         nome.style.float = 'left';
@@ -97,25 +94,56 @@ function addProdutosToScreen(produtos, corDoBotao, imagemDoBotao){
 
        const divBotao = document.createElement('div');
 
+       const divInput = document.createElement('div')
+        divInput.style.alignSelf = 'center';
+
+        const inputQuantidade = document.createElement('input');
+        inputQuantidade.value = 0
+        inputQuantidade.type = 'number'
+        inputQuantidade.style.width = '50px'
+        inputQuantidade.style.marginRight = '10px'
+        inputQuantidade.style.height = '30px'
+        inputQuantidade.style.borderRadius = '5px'
+        inputQuantidade.style.marginTop = '-200px'
+        inputQuantidade.className = 'numerador'
+        inputQuantidade.value = itens[produto.id]
+        inputQuantidade.onchange = function (){
+            if(inputQuantidade.value < 0){
+                inputQuantidade.value = 0
+            }
+        }
+        inputQuantidade.type = 'number';
+        inputQuantidade.style.width = '50px';
+        inputQuantidade.style.marginRight = '10px';
+        inputQuantidade.style.height = '30px';
+        inputQuantidade.style.borderRadius = '5px';
+        inputQuantidade.className = 'numerador';
+        inputQuantidade.value = 0;
+        divInput.appendChild(inputQuantidade)
+        divBotao.appendChild(divInput);
+        divBotao.style.display = 'flex';
+        divBotao.style.float = 'right';
+        
 
        const botao = document.createElement('img');
        botao.src = imagemDoBotao
        botao.className = 'button-compra';
        botao.id = 'button-compra';
-       botao.style.height = '50px';
-       botao.style.backgroundImage = 'url("../assets/shopping\ cart.png")';
+       botao.style.height = '45px';
+       botao.style.width = '45px';
+       botao.style.background = 'white';
+       botao.style.borderRadius = '5px';
+       botao.style.borderColor = 'white';
+       botao.style.marginRight = '12px';
        botao.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
-       botao.style.width = '50px';
-       botao.style.background = corDoBotao;
-       botao.style.borderRadius = '10px';
-       botao.style.marginTop = '-85px';
-       botao.style.marginRight = '3%';
-       botao.style.marginBottom = '100px';
-       botao.style.float = 'right';
+       botao.className = 'button';
        botao.style.cursor = 'pointer';
-       botao.style.position = 'relative!important';
        botao.onclick = function (){
-        selecionarQuantidadeDeItens(produto)
+        //selecionarQuantidadeDeItens(produto)
+        if(inputQuantidade.value > 0){
+            adicionarAoCarrinho(produto['id'], inputQuantidade.value)
+            inputQuantidade.value = 0
+        }
        }
        
        divBotao.appendChild(botao)
@@ -123,11 +151,8 @@ function addProdutosToScreen(produtos, corDoBotao, imagemDoBotao){
        li.appendChild(divBotao);
 
         orderedList.appendChild(li)
-        
     })
 }
-
-
 
 function selecionarQuantidadeDeItens(produto){
     Swal.fire({

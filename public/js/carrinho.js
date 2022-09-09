@@ -29,6 +29,7 @@ function addProdutosToScreenCart(produtos){
         orderedList.appendChild(img)
     }
         produtos.forEach(produto =>{ 
+            var totalProduto = produto['preco'] * itens[produto['id']]
             const li = document.createElement('div')
             li.style.width = '80%';
             li.style.height = '160px';
@@ -48,8 +49,6 @@ function addProdutosToScreenCart(produtos){
             divInfo.style.display = 'flex';
             divInfo.style.flexDirection = 'Column';
             
-            
-
             const nome = document.createElement('h3')
             nome.innerHTML = '<b>Nome do produto: </b>' + produto['nome'];
             nome.style.float = 'left';
@@ -60,7 +59,6 @@ function addProdutosToScreenCart(produtos){
             nome.style.fontSize = '14px';
             divInfo.appendChild(nome)
             
-
             const marca = document.createElement('h4') 
             marca.innerHTML = '<b>Marca: </b> ' + produto['marca']
             marca.style.float = 'left';
@@ -91,14 +89,31 @@ function addProdutosToScreenCart(produtos){
             divInfoProduto.appendChild(divInfo)
 
             const divBotao = document.createElement('div');
-
+            const divTotal = document.createElement('div')
+            const total = document.createElement('h2')
+            total.innerHTML = `Total: R$ ${(produto['preco'] * itens[produto['id']]).toFixed(2)}`;
+            total.style.fontSize = '17px';
+            total.style.marginTop = '24px';
+            total.style.marginRight = '65px'
+            divTotal.appendChild(total)
+            divBotao.appendChild(divTotal)
             const divInput = document.createElement('div')
             divInput.style.alignSelf = 'center';
 
             const inputQuantidade = document.createElement('input');
             inputQuantidade.value = itens[produto.id]
             inputQuantidade.onchange = function (){
+                /*if(inputQuantidade.value > itens[produto['id']]){
+                    totalProduto -= produto['preco']
+                    total.innerHTML = `Total: R$ ${totalProduto}`
+                }else{
+                    totalProduto -= produto['preco']
+                    total.innerHTML = `Total: R$ ${totalProduto}`
+                }*/
                 itens[produto.id] = inputQuantidade.value
+                total.innerHTML = `Total: R$ ${(produto['preco'] * itens[produto['id']]).toFixed(2)}`
+                localStorage.setItem(useruid, JSON.stringify(itens));
+                
                 atualizarValorTotal()
             }
             inputQuantidade.type = 'number'
@@ -127,6 +142,7 @@ function addProdutosToScreenCart(produtos){
             botao.style.cursor = 'pointer';
             botao.onclick = function (){
                 confirmarExclusao(produto['id'])
+                
             }
             botao.style.border = '4px solid white';
         
@@ -137,7 +153,6 @@ function addProdutosToScreenCart(produtos){
             orderedList.appendChild(li)
             
         })
-    
 }
 
 
