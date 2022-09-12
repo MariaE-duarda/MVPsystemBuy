@@ -56,7 +56,7 @@ function addProdutosToScreen(produtos, corDoBotao, imagemDoBotao){
         li.style.marginRight = 'auto';
         li.style.marginBottom = '15px';
         li.style.marginTop = '0px';
-        li.className = 'produto';
+        li.className = "produto";
         li.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
  
         const divInfoProduto = document.createElement('div');

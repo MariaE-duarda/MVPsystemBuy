@@ -9,7 +9,7 @@ function adicionarAoCarrinho(idProduto, quantidade){
 }
 
 function addProdutosToScreenCart(produtos){
-    var lista = document.getElementsByClassName("produto");
+    var lista = document.getElementsByClassName("divProduto");
     for(var i = lista.length - 1; i >= 0; i--)
     {
         lista[i].remove()
