@@ -249,7 +249,7 @@ async function finalizarCompra(){
         produtosDoCarrinho.push(produtoAtual)
     })
     pedido['produtos'] = produtosDoCarrinho
-    mensagem += `\n*TOTAL DE ITENS: ${quantidadeDeItens}*\n`
+    mensagem += `\n*TOTAL DE ITENS: ${parseInt(quantidadeDeItens)}*\n`
     mensagem += `*TOTAL EM DINHEIRO: R$ ${valor.toFixed(2)}*\n\n`
     mensagem += `Você possui todos esses ${quantidadeDeItens} itens?`
     
@@ -265,7 +265,7 @@ async function finalizarCompra(){
         addProdutosToScreenCart(itensDoCarrinho)
         console.log(mensagem)
         mensagem = window.encodeURIComponent(mensagem)
-        window.open(`https://api.whatsapp.com/send?phone=5584999391233&text=${mensagem}`, '_blank')
+        window.open(`https://wa.me/5584999391233?text=${mensagem}`, '_blank')
     })
 }
 
