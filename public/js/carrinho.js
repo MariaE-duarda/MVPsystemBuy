@@ -251,7 +251,11 @@ async function finalizarCompra(){
     pedido['produtos'] = produtosDoCarrinho
     mensagem += `\n*TOTAL DE ITENS: ${parseInt(quantidadeDeItens)}*\n`
     mensagem += `*TOTAL EM DINHEIRO: R$ ${valor.toFixed(2)}*\n\n`
-    mensagem += `Você possui todos esses ${quantidadeDeItens} itens?`
+    if(quantidadeDeItens > 1){
+        mensagem += `Você possui todos esses ${quantidadeDeItens} itens?`
+    }else{
+        mensagem += `Você possui esse item?`
+    }
     
     firebase.firestore().collection('pedidos').add(pedido).then(()=>{
         Swal.fire({
