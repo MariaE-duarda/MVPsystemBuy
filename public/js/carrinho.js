@@ -262,7 +262,7 @@ async function finalizarCompra(){
         itens = {}
         localStorage.setItem(useruid, JSON.stringify(itens));
         atualizarValorTotal()
-        addProdutosToScreenCart(itensDoCarrinho)
+        addProdutosToScreenCart([])
         console.log(mensagem)
         mensagem = window.encodeURIComponent(mensagem)
         window.open(`https://wa.me/5584999391233?text=${mensagem}`, '_blank')
