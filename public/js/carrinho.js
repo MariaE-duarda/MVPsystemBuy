@@ -224,6 +224,11 @@ async function finalizarCompra(){
     pedido['hora'] = hora
     var userIdToken = firebase.auth().currentUser;
     pedido['idCliente'] = userIdToken.uid;
+    var docRef = await firebase.firestore().collection('usuarios').doc(userIdToken.uid);
+    await docRef.get().then((snapshot)=>{
+        pedido['emailCliente'] = snapshot.data()['email']
+        pedido['whatsappCliente'] = snapshot.data()['whatsapp']
+    })
     
    await firebase.firestore().collection('numeroPedido').get().then(snapshot => {
        

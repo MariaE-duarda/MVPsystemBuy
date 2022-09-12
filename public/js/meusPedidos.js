@@ -26,15 +26,32 @@ function adicionarPedidosNaTela(meusPedidos){
     var divPedidos = document.getElementById('pedidos');
 
     meusPedidos.forEach((meuPedido)=>{
+
         var divCard = document.createElement('div');
         divCard.className = 'pedido'
+        var divInfo = document.createElement('div')
+        divInfo.style.display = 'flex'
+        divInfo.style.flexDirection = 'column'
+        var numeroPedido = document.createElement('p')
+        numeroPedido.innerHTML = `${meuPedido['numeroPedido']}`
+        if(tipoDeUsuario == 'vendedor'){
+            var email = document.createElement('p')
+            email.innerHTML = `<b>Email</b>: ${meuPedido['emailCliente']}`
+            email.style.color = 'white'
+            email.style.float = 'left'
+            email.style.marginLeft = '7px'
+            email.style.marginTop = '5px'
+            email.className = 'texto'
+            divInfo.appendChild(email)
+        }
         var dataEHora = document.createElement('p')
         dataEHora.innerHTML = ` <b>Dia</b>: ${meuPedido['data']}<br> <b>Horas</b>: ${meuPedido['hora']}<br><br>`
         dataEHora.style.float = 'left'
         dataEHora.style.marginLeft = '5px'
         dataEHora.style.marginTop = '5px'
         dataEHora.className = 'texto'
-        divCard.appendChild(dataEHora)
+        divInfo.appendChild(dataEHora)
+        divCard.appendChild(divInfo)
 
         meuPedido['produtos'].forEach((produto)=>{
             var divProduto = document.createElement('div')

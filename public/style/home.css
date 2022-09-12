@@ -80,7 +80,7 @@ ul{
 
 @media(max-width: 400px){
     li{
-        font-size: 16px;
+        font-size: 14px;
     }
 
     h2.produto-text{
@@ -110,16 +110,16 @@ img.button-compra#button-compra{
 }
 
 a{
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     color: black;
 }
 
 li{
+    margin-top: 5px;
     display: inline-block;
     margin-left: 2%;
     transition: 0.3s;
-    padding-right: 7px;
 }
 
 li:hover{
