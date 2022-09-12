@@ -33,7 +33,13 @@ function adicionarPedidosNaTela(meusPedidos){
         divInfo.style.display = 'flex'
         divInfo.style.flexDirection = 'column'
         var numeroPedido = document.createElement('p')
-        numeroPedido.innerHTML = `${meuPedido['numeroPedido']}`
+        numeroPedido.innerHTML = `<b>Nº do Pedido</b>: ${meuPedido['numeroPedido']}`
+        numeroPedido.style.color = 'white'
+        numeroPedido.style.float = 'left'
+        numeroPedido.style.marginLeft = '7px'
+        numeroPedido.style.marginTop = '5px'
+        numeroPedido.className = 'texto'
+        divInfo.appendChild(numeroPedido)
         if(tipoDeUsuario == 'vendedor'){
             var email = document.createElement('p')
             email.innerHTML = `<b>Email</b>: ${meuPedido['emailCliente']}`

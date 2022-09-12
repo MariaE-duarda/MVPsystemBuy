@@ -25,13 +25,14 @@ ul{
     margin-top: -75px;
     margin-left: 70%;
     width: auto;
+
 }
 
 #img-info{
-    position: absolute;
+    position: absolute !important;
     width: 50px;
-    margin-top: -10px;
-    margin-left: 100px;
+    margin-top: -40px;
+    margin-left: 120px;
     display: none;
 }
 
