@@ -36,7 +36,7 @@ function addProdutosToScreen(produtos, corDoBotao, imagemDoBotao){
     produtos.forEach(produto =>{ 
         const li = document.createElement('div')
         li.style.width = '95%';
-        li.style.height = '130px';
+        li.style.height = '170px';
         li.style.borderRadius = '10px';
         li.style.marginLeft = 'auto';
         li.style.marginRight = 'auto';
@@ -46,7 +46,7 @@ function addProdutosToScreen(produtos, corDoBotao, imagemDoBotao){
         li.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
  
         const divInfoProduto = document.createElement('div');
-        divInfoProduto.style.height = '70px'; 
+        divInfoProduto.style.height = '110px'; 
 
         const divInfo = document.createElement('div')
         divInfo.style.display = 'flex';
@@ -103,6 +103,7 @@ function addProdutosToScreen(produtos, corDoBotao, imagemDoBotao){
         inputQuantidade.style.width = '50px'
         inputQuantidade.style.marginRight = '10px'
         inputQuantidade.style.height = '30px'
+        inputQuantidade.style.position = 'absolute !important'
         inputQuantidade.style.borderRadius = '5px'
         inputQuantidade.style.marginTop = '-200px'
         inputQuantidade.className = 'numerador'

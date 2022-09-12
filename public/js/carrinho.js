@@ -43,7 +43,7 @@ function addProdutosToScreenCart(produtos){
             li.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
 
             const divInfoProduto = document.createElement('div');
-            divInfoProduto.style.height = '143px';
+            divInfoProduto.style.height = '123px';
             
             const divInfo = document.createElement('div')
             divInfo.style.display = 'flex';
@@ -89,16 +89,20 @@ function addProdutosToScreenCart(produtos){
             divInfoProduto.appendChild(divInfo)
 
             const divBotao = document.createElement('div');
+            divBotao.style.width = '100%'
             const divTotal = document.createElement('div')
             const total = document.createElement('h2')
             total.innerHTML = `Total: R$ ${(produto['preco'] * itens[produto['id']]).toFixed(2)}`;
             total.style.fontSize = '17px';
             total.style.marginTop = '24px';
-            total.style.marginRight = '65px'
+            total.style.marginLeft = '20px'
+            total.style.float = 'left'
+            total.style.marginRight = '10px'
             divTotal.appendChild(total)
+            divTotal.style.width = '1350px'
             divBotao.appendChild(divTotal)
             const divInput = document.createElement('div')
-            divInput.style.alignSelf = 'center';
+            
 
             const inputQuantidade = document.createElement('input');
             inputQuantidade.value = itens[produto.id]
@@ -125,8 +129,7 @@ function addProdutosToScreenCart(produtos){
             divInput.appendChild(inputQuantidade)
             divBotao.appendChild(divInput);
             divBotao.style.display = 'flex';
-            divBotao.style.float = 'right';
-            divBotao.style.marginTop = '-45px';
+            divBotao.style.marginTop = '-20px';
 
 
             const botao = document.createElement('img');
