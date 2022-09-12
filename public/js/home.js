@@ -12,8 +12,22 @@ function mudarFiltro(){
 function inverterFiltro(){
     produtos.reverse();
 }
-
-
+function pesquisarProduto(){
+    var texto = document.getElementById('input-pesquisa').value
+    var textoPuro = texto.toLowerCase()
+    firebase.firestore().collection('produtos').orderBy(value).get().then(snapshot => {
+       var produtosFiltrados = []
+        produtosPesquisado = snapshot.docs.map(doc => doc.data())
+        produtosPesquisado.forEach((produto)=>{
+            var nome = produto['nome'].toLowerCase()
+            var marca = produto['marca'].toLowerCase()
+            if(nome.includes(textoPuro) || marca.includes(textoPuro)){
+                produtosFiltrados.push(produto)
+            }
+        })
+        addProdutosToScreen(produtosFiltrados, '#317B78', 'https://static.vecteezy.com/system/resources/previews/000/487/765/original/shopping-cart-icon-design-vector.jpg')
+})
+}
 
 
 function findProdutos(value){
@@ -144,6 +158,8 @@ function addProdutosToScreen(produtos, corDoBotao, imagemDoBotao){
         if(inputQuantidade.value > 0){
             adicionarAoCarrinho(produto['id'], inputQuantidade.value)
             inputQuantidade.value = 0
+            let newCarrinho = document.getElementById('img-info');
+            newCarrinho.style.display = 'flex';
         }
        }
        
@@ -174,8 +190,7 @@ function selecionarQuantidadeDeItens(produto){
             adicionarAoCarrinho(produto.id, result.value)
             alert('Produtos adicionados no carrinho!')
 
-            let newCarrinho = document.getElementById('img-info');
-            newCarrinho.style.display = 'flex';
+            
 
         }
     });

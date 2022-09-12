@@ -107,13 +107,9 @@ function addProdutosToScreenCart(produtos){
             const inputQuantidade = document.createElement('input');
             inputQuantidade.value = itens[produto.id]
             inputQuantidade.onchange = function (){
-                /*if(inputQuantidade.value > itens[produto['id']]){
-                    totalProduto -= produto['preco']
-                    total.innerHTML = `Total: R$ ${totalProduto}`
-                }else{
-                    totalProduto -= produto['preco']
-                    total.innerHTML = `Total: R$ ${totalProduto}`
-                }*/
+                if(inputQuantidade.value < 0){
+                    inputQuantidade.value = 0
+                }
                 itens[produto.id] = inputQuantidade.value
                 total.innerHTML = `Total: R$ ${(produto['preco'] * itens[produto['id']]).toFixed(2)}`
                 localStorage.setItem(useruid, JSON.stringify(itens));
