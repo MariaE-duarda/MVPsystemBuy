@@ -25,7 +25,7 @@ function pesquisarProduto(){
                 produtosFiltrados.push(produto)
             }
         })
-        addProdutosToScreen(produtosFiltrados, '#317B78', 'https://static.vecteezy.com/system/resources/previews/000/487/765/original/shopping-cart-icon-design-vector.jpg')
+        addProdutosToScreen(produtosFiltrados, '#317B78', 'https://github.com/MariaE-duarda/Imagens/blob/main/shopping%20cart.png?raw=true')
 })
 }
 
@@ -34,7 +34,7 @@ function findProdutos(value){
     firebase.firestore().collection('produtos').orderBy(value).get().then(snapshot => {
        
             produtos = snapshot.docs.map(doc => doc.data())
-            addProdutosToScreen(produtos, '#317B78', 'https://static.vecteezy.com/system/resources/previews/000/487/765/original/shopping-cart-icon-design-vector.jpg')
+            addProdutosToScreen(produtos, '#317B78', 'https://github.com/MariaE-duarda/Imagens/blob/main/shopping%20cart.png?raw=true')
     })
 }
 
@@ -152,6 +152,7 @@ function addProdutosToScreen(produtos, corDoBotao, imagemDoBotao){
        botao.style.marginRight = '12px';
        botao.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
        botao.className = 'button';
+       botao.style.backgroundColor = '#317B78'
        botao.style.cursor = 'pointer';
        botao.onclick = function (){
         //selecionarQuantidadeDeItens(produto)
