@@ -23,9 +23,9 @@ function separaLinhas(txt){
         produto['nome'] = itens[0]
         produto['marca'] = itens[1]
         produto['preco'] = parseFloat(itens[2])
-        produto['unidade'] = itens[3]
-        produto['descricao'] = itens[4]
-        produto['linkImagem'] = itens[5]
+        produto['descricao'] = itens[3]
+        //produto['unidade'] = itens[3]
+        //produto['linkImagem'] = itens[5]
         produtos.push(produto)
         console.log(item)
     })

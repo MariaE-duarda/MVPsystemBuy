@@ -15,14 +15,6 @@ h2.produto-text{
     font-weight: 500;
 }
 
-.menu-bar{
-    margin-left: -85%;
-    height: 45px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    cursor: pointer;
-}
-
 ul{
     margin-top: -77px;
     margin-left: 70%;

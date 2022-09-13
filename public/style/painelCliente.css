@@ -32,7 +32,7 @@ ul{
 
 @media(max-width: 840px){
 
-    #buttonProcurar.button, #button1.button, #button2.button{
+    #buttonProcurar.button, #button1.button, #button2.button, #buttonCadastrar.button{
         margin-top: 20px;
         margin-bottom: 10px;
     }
@@ -50,7 +50,13 @@ ul{
         margin-bottom: -20px;
     }
 
-    button#buttonProcurar.button, button#button1.button, button#button2.button{
+    #buttonCadastrar.button{
+        margin-top: 45px;
+    }
+
+
+
+    button#buttonProcurar.button, button#button1.button, button#button2.button, button#buttonCadastrar.button{
         height: 120px;
         width: 85%;
     }

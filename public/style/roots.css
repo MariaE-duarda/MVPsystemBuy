@@ -1,6 +1,6 @@
 :root{
-    --color-primary: ;
-    --color-secundary: ;
+    --color-primary: #317B78;
+    --color-secundary: rgba(49, 123, 120, 0.1);
     --color-button: ;
 
 }

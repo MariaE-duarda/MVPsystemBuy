@@ -11,25 +11,36 @@
     <title>Cadastro Produto</title>
 </head>
 <body>
+    <header>
+        <div id="menu">
+            <a href="painelCliente.html"><img class="menu-bar" src="assets/back.png" alt="icone para menu"></a>
+            <ul>
+                <a href="home.html"><li>Produtos</li></a>
+                <a href="carrinho.html"><li>Carrinho</li></a>
+                <a href="meusPedidos.html"><li>Pedidos</li></a>
+                <a href="#"><li onclick="sair()">Sair</li></a>
+            </ul>
+        </div>
+    </header>
     <h1 id="title">Cadastrar Produto</h1>
     <hr>
     <form method='get' action="pedidosFeitos.html">
         <label for="nomeProduto"></label>
         <input id='nomeProduto' type="text" placeholder="Nome do produto" required name="nomeProduto">
-        <div class="inputs">
             <label for="precoProduto"></label>
             <input id='precoProduto' type="number" placeholder="Preço do produto" required name="price" min="0" value=" " step="any">
             <label for="marca"></label>
             <input id='marca' type="text" placeholder="Marca do produto" required name='marca'>
-        </div>
         <label for="unidade"></label>
-        <input id="unidade" type="text" placeholder="Unidade do produto" required name="unidade">
         <label for="descricao"></label>
         <input id='descricao' type="text" placeholder="Descrição do produto" required name="descricao">
         <label for="linkImagem"></label>
-        <input id='linkImagem' type="text" placeholder="Link da Imagem" required name="linkImagem">
     </form>
-    <button id='button-produto' onclick="cadastrarProduto()">Cadastrar</button>
+    <button id='button-produto' onclick="cadastrarProduto()">Cadastrar</button> <br>
+
+    <span id="text">------ OU -------</span> <br>
+
+    <button id='button-exportar' onclick="">Exportar produtos</button> <br>
 
 
     <script src="https://www.gstatic.com/firebasejs/9.9.2/firebase-app-compat.js"></script>
